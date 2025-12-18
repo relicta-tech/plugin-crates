@@ -210,13 +210,13 @@ func TestParseConfig(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			// Set env vars
 			for k, v := range tt.envVars {
-				os.Setenv(k, v)
+				_ = os.Setenv(k, v)
 			}
 
 			// Cleanup env vars after test
 			defer func() {
 				for k := range tt.envVars {
-					os.Unsetenv(k)
+					_ = os.Unsetenv(k)
 				}
 			}()
 
